@@ -1,48 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل الدخول - مطبخي</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-</head>
-<body>
-    <div class="login-container">
-        <div class="login-box">
-            <h1>🍲 مطبخي</h1>
-            <p class="subtitle">أكل بيتي بالكيلو</p>
-            
-            <div class="login-options">
-                <button onclick="showCustomerLogin()" class="btn btn-customer">تسجيل عميل</button>
-                <button onclick="showAdminLogin()" class="btn btn-admin">تسجيل بائع</button>
-            </div>
-
-            <!-- تسجيل العميل -->
-            <div id="customerLogin" class="login-form hidden">
-                <h2>تسجيل الدخول كعميل</h2>
-                <form id="customerLoginForm">
-                    <input type="tel" id="customerPhone" placeholder="رقم الهاتف" required>
-                    <input type="text" id="customerName" placeholder="اسمك" required>
-                    <button type="submit" class="btn">دخول</button>
-                </form>
-            </div>
-
-            <!-- تسجيل البائع -->
-            <div id="adminLogin" class="login-form hidden">
-                <h2>تسجيل الدخول كبائع</h2>
-                <form id="adminLoginForm">
-                    <input type="email" id="adminEmail" placeholder="البريد الإلكتروني" required>
-                    <input type="password" id="adminCode" placeholder="الكود السري" required>
-                    <button type="submit" class="btn">دخول</button>
-                </form>
-                <p class="note">الكود السري خاص بالبائع فقط ولا يمكن تغييره إلا من خلال البائع</p>
-            </div>
-        </div>
-    </div>
-
-    <script src="db.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
