@@ -1,97 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة التحكم - مطبخي</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-</head>
-<body>
-    <header>
-        <nav>
-            <h1>👨🍳 لوحة تحكم البائع</h1>
-            <div class="nav-links">
-                <span id="adminEmailDisplay"></span>
-                <button onclick="showChangePasswordModal()" class="btn btn-outline">تغيير الكود السري</button>
-                <a href="login.html" class="btn btn-outline">خروج</a>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <div class="container">
-            <!-- الإحصائيات -->
-            <section class="admin-stats">
-                <h2>📊 إحصائيات اليوم</h2>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <h3 id="todayOrders">0</h3>
-                        <p>طلبات اليوم</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3 id="availableProducts">0</h3>
-                        <p>منتج متاح</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3 id="pendingOrders">0</h3>
-                        <p>طلبات قيد الانتظار</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- إدارة المنتجات -->
-            <section class="products-management">
-                <h2>🛍️ إدارة المنتجات</h2>
-                <div class="add-product-form">
-                    <h3>إضافة منتج جديد</h3>
-                    <form id="addProductForm">
-                        <input type="text" id="productName" placeholder="اسم المنتج" required>
-                        <textarea id="productDesc" placeholder="وصف المنتج" required></textarea>
-                        <input type="number" id="productPrice" placeholder="سعر الكيلو" required min="1">
-                        <input type="number" id="productStock" placeholder="الكمية المتاحة (كيلو)" required min="0.1" step="0.1">
-                        <input type="text" id="productImage" placeholder="رابط الصورة (اختياري)">
-                        <button type="submit" class="btn">إضافة المنتج</button>
-                    </form>
-                </div>
-
-                <div class="products-list">
-                    <h3>المنتجات الحالية</h3>
-                    <div id="adminProductsList" class="products-grid">
-                        <!-- منتجات البائع تظهر هنا -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- إدارة الطلبات -->
-            <section class="orders-management">
-                <h2>📦 طلبات اليوم</h2>
-                <div id="todayOrdersList">
-                    <!-- طلبات اليوم تظهر هنا -->
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <!-- نافذة تغيير الكود السري -->
-    <div id="changePasswordModal" class="modal hidden">
-        <div class="modal-content">
-            <h3>تغيير الكود السري</h3>
-            <p class="modal-note">يمكن للبائع فقط تغيير الكود السري</p>
-            <form id="changePasswordForm">
-                <input type="password" id="currentPassword" placeholder="الكود الحالي" required>
-                <input type="password" id="newPassword" placeholder="الكود الجديد" required>
-                <input type="password" id="confirmPassword" placeholder="تأكيد الكود الجديد" required>
-                <div class="modal-buttons">
-                    <button type="submit" class="btn">تغيير الكود</button>
-                    <button type="button" onclick="hideChangePasswordModal()" class="btn btn-outline">إلغاء</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <script src="db.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
